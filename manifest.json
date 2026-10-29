@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "PhishyPhish — Gmail Phishing Detector",
+  "version": "1.0.0",
+  "description": "Rule-based phishing detection for Gmail: sender spoofing, link mismatch, urgency language, dangerous attachments. Runs 100% locally.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["rules.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PhishyPhish"
+  }
+}
